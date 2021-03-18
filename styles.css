@@ -1,17 +1,29 @@
+/* default user agent (browser) marges verwijderen voor meer controle over de spatiëring van de buitenste gutter */
 * {
-    margin: 0px;
+    margin: 0;
 }
 
+/* waardes die op meerdere plekken hetzelfde zijn, handig bij wijzigingen */
+:root {
+    --block-bg-color: hsl(212, 43%, 65%);
+    --blockbordercolor: hsl(212, 94%, 19%);
+    --witruimte-tussen-elementen: 16px;
+    --textcolor: #ffffff;
+}
+
+/* 16px witruimte tussen browservenster en inhoud van de gehele pagina */
 body {
-    padding: 16px;
+    padding: var(--witruimte-tussen-elementen)
 }
 
+/* omsluitende div waar alle elementen inzitten met display grid */
 .container {
     font-family: "Helvetica Neue", Arial, sans-serif;
     display: grid;
-    gap: 16px;
-    /*row-gap: 16px;*/
-    /*column-gap: 16px;*/
+    gap: var(--witruimte-tussen-elementen);
+    /* die gap kan je dus ook voor horizontaal en verticaal afzonderlijk instellen */
+    /* row-gap: 16px; */
+    /* column-gap: 16px; */
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 50px 174px 100px auto 50px;
     grid-template-areas:
@@ -22,56 +34,62 @@ body {
             "six six six";
 }
 
+/* de blokken met alleen de plaatsaanduiding A C D E F */
 .blok {
-    background-color: hsl(212, 43%, 65%);
-    border: 1px solid hsl(212, 94%, 19%);
-    color: #ffffff;
+    background-color: var(--block-bg-color);
+    border: 1px solid var(--blockbordercolor);
+    color: var(--textcolor);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* blok B met leestekst */
 .article {
-    background-color: hsl(212, 43%, 65%);
-    border: 1px solid hsl(212, 94%, 19%);
-    color: #ffffff;
+    background-color: var(--block-bg-color);
+    border: 1px solid var(--blockbordercolor);
+    color: var(--textcolor);
     display: flex;
-    padding: 16px;
+    padding: var(--witruimte-tussen-elementen);
 }
 
-#item-A {
+/* toekenning blokken aan grid template areas */
+#item-a {
     grid-area: one;
 }
 
-#item-B {
+#item-b {
     grid-area: two;
 }
 
-#item-C {
+#item-c {
     grid-area: three;
 }
 
-#item-D {
+#item-d {
     grid-area: four;
 }
 
-#item-E {
+#item-e {
     grid-area: five;
 }
 
-#item-F {
+#item-f {
     grid-area: six;
 }
 
+/* mobiele versie */
 @media screen and (max-width: 576px) {
 
     .container {
-        /*font-family: "Helvetica Neue", Arial, sans-serif;*/
-        /*!*background-color: hsl(212, 37%, 90%);*!*/
-        /*display: grid;*/
-        /*row-gap: 16px;*/
-        /*column-gap: 16px;*/
-        /*margin: 10px;*/
+        /* de onderstaande uitgecommente styling wordt ge-erfd van eerdere declaratie hierboven */
+        /* Ik laat ze hier wel staan voor als je de media query wil omdraaien: default mobile en dan */
+        /* met een minimum screenwidth als criterium: @media screen and (min-width: 576px) */
+        /* font-family: "Helvetica Neue", Arial, sans-serif;*/
+        /* background-color: hsl(212, 37%, 90%); */
+        /* display: grid;*/
+        /* row-gap: 16px; */
+        /* column-gap: 16px; */
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: 50px auto 50px 50px 50px 50px 50px;
         grid-template-areas:

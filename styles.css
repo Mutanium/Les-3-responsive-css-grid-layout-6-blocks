@@ -16,7 +16,7 @@ body {
     padding: var(--whitespace-between-elements)
 }
 
-/* omsluitende div met class wrapper waar alle elementen inzitten met display grid */
+/* omsluitende div met de class wrapper waar alle elementen inzitten met display grid */
 .wrapper {
     font-family: "Helvetica Neue", Arial, sans-serif;
     display: grid;
@@ -42,7 +42,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* padding voor leestekst */
     padding: var(--whitespace-between-elements);
 }
 
